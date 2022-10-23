@@ -1,6 +1,6 @@
 {
   "name": "@decorators-ts/exceptions-logs",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Implementations for validating exceptions and internal rules.",
   "main": "lib/index.js",
   "types": "lib",
@@ -113,3 +113,4 @@
   },
   "homepage": "https://github.com/Christiangsn/exceptions-logs#readme"
 }
+ 

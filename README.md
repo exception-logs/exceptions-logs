@@ -1,5 +1,5 @@
 # <h1 align="center"> @DECORATORS-TS/EXCEPTION-LOGS </h1>
-### version: alpha 0.0.3
+### version: 0.0.3-beta.1
 
 # :bookmark_tabs: About the Project
 Based on design patterns decorators, this functionality will allow you to implement an exception log decorator that brings you custom information...

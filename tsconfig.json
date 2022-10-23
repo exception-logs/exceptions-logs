@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "es2015",                          
+      "module": "commonjs",                     
+      "lib": ["es6"],       
+      "allowJs": true,                       
+      "outDir": "./lib",                        
+      "rootDir": "./src",      
+      "removeComments": false,                  
+      "typeRoots": ["src/@types", "node_modules/@types"],                         
+      "esModuleInterop": true,                  
+      "resolveJsonModule": true,
+      "experimentalDecorators": true,        
+      "emitDecoratorMetadata": true,    
+      "declaration": true,
+      "declarationMap": true,     
+      "sourceMap": true,
+      "skipLibCheck": false,                     
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": "./src",
+      "paths": { }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+  }

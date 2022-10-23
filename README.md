@@ -43,10 +43,33 @@ on the top line of your class function, invoke the method
   - the event tasks will be displayed in your console, thus delivering customized information in case of error or success
 
 # EXAMPLE
-![Screenshot](exemp.png)
+```bash
+    import { Execpetion } from '@decorators-ts/exceptions-logs'
+
+    interface IDevelpmentController {
+        running: (into: string) => Promise<string>
+    }
+
+    class DevelopmentController implements IDevelpmentController {
+
+        @Execpetion({
+            methodName: 'DevelopmentController',
+        })
+        public async running (arg: string): Promise<string> {
+            return arg
+        }
+    }
+```
 
 my console in execution success
-![Screenshot](success.png)
+```bash
+    [INFO - LOGGER ID: kdhp155] EXECUTION RUNNING -  13:55:23 - 23/10/2022 13:55:23 | - [RUNNING] DevelopmentController
+    [INFO - LOGGER ID: kdhp155] EXECUTION SUCCESS -  13:55:23 - 23/10/2022 13:55:23 | - [FINALLY] DevelopmentController - [TASK EVENT: 0.005 ms]
+```
 
 my console in execution fails
-![Screenshot](error.png)
+```bash
+    [INFO - LOGGER ID: 91by155] EXECUTION RUNNING -  13:55:28 - 23/10/2022 13:55:28 | - [RUNNING] DevelopmentController
+    [INFO - LOGGER ID: 91by155] EXECUTION FAILED  -  13:55:28 - 23/10/2022 13:55:28 | - [FINALLY] DevelopmentController - [TASK EVENT LOGGER ERROR: args is not defined]
+    [INFO - LOGGER ID: 91by155] EXECUTION FAILED  -  13:55:28 - 23/10/2022 13:55:28 | - [FINALLY] DevelopmentController - [TASK EVENT DEBUG ERROR : ['YOUT PATH OR FILE ERROR']]
+```

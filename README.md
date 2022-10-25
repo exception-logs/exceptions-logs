@@ -23,6 +23,8 @@ As seen in the images above, the decorator implements custom logs, thus, sending
 
 ### How to use?
 
+### :globe_with_meridians: Exception Decorators
+
 ```bash
  import { Execpetion } from '@decorators-ts/exceptions-logs'
 ```
@@ -42,7 +44,7 @@ on the top line of your class function, invoke the method
 ###  return
   - the event tasks will be displayed in your console, thus delivering customized information in case of error or success
 
-# EXAMPLE
+### EXAMPLE
 ```bash
     import { Execpetion } from '@decorators-ts/exceptions-logs'
 
@@ -73,3 +75,25 @@ my console in execution fails
     [INFO - LOGGER ID: 91by155] EXECUTION FAILED  -  13:55:28 - 23/10/2022 13:55:28 | - [FINALLY] DevelopmentController - [TASK EVENT LOGGER ERROR: args is not defined]
     [INFO - LOGGER ID: 91by155] EXECUTION FAILED  -  13:55:28 - 23/10/2022 13:55:28 | - [FINALLY] DevelopmentController - [TASK EVENT DEBUG ERROR : ['YOUT PATH OR FILE ERROR']]
 ```
+
+### :globe_with_meridians: Parameters Required Decorators
+```bash
+  import { ValidateRequired, Required } from '@decorators-ts/exceptions-logs'
+```
+
+###  parameters
+   - indicate the required input parameters in an array
+   - identify as @Required in the parameter receiving field
+
+###  return
+  - in eventual confirmation of mandatory parameter, it will generate an error
+
+### EXAMPLE
+```bash
+  @ValidateRequired(['Name', 'Email'])
+  public async running (@Required args: IArgs): Promise<void> {}
+```
+
+
+You can use the combination of decorators to avoid custom required errors.
+you can also contribute by making a pull request and adding new features :)

@@ -20,6 +20,6 @@
       "baseUrl": "./src",
       "paths": { }
     },
-    "include": ["src"],
+    "include": ["src", "teste.ts"],
     "exclude": ["node_modules"]
   }

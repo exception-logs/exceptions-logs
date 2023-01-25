@@ -20,7 +20,7 @@ interface IExecpetion {
     methodName: string;
     crached?: boolean;
     countryLog?: ItoLocaleDateString.locale;
-    execeptionError?: Error;
+    execeptionError?: typeof Error;
 }
 
 /**
@@ -60,7 +60,7 @@ interface IExecpetion {
               console.log(`${ColorsLog.white}[${ColorsLog.cyan}INFO - ${ColorsLog.blue}LOGGER ID: ${ColorsLog.magenta}${TargetLoggerId}${ColorsLog.white}] ${ColorsLog.red}EXECUTION FAILED ${ColorsLog.white} -  ${actuallyDate} - ${actuallyDateTime} | - [${ColorsLog.red}FINALLY] ${ColorsLog.white}${methodName} - [${ColorsLog.yellow}TASK EVENT DEBUG ERROR : ${ColorsLog.white}${lineError?.trim() ?? 'NOT FOUND'}`)
               console.log(`${ColorsLog.white}[${ColorsLog.cyan}INFO - ${ColorsLog.blue}LOGGER ID: ${ColorsLog.magenta}${TargetLoggerId}${ColorsLog.white}] ${ColorsLog.red}EXECUTION FAILED ${ColorsLog.white} -  ${actuallyDate} - ${actuallyDateTime} | - [${ColorsLog.red}FINALLY] ${ColorsLog.white}${methodName} - [${ColorsLog.yellow}TASK EVENT DURATION    : ${ColorsLog.white}${taskDuration} ms]`)
             
-              const personalizedError = execeptionError ?? new Error('Internal Server Error')
+              const personalizedError = new execeptionError(error) ?? new Error('Internal Server Error')
               return crached ?? personalizedError 
             }    
     

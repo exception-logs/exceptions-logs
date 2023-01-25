@@ -82,18 +82,109 @@ my console in execution fails
 ```
 
 ###  parameters
+   - this new update the field validation resources are more advanced!!
    - indicate the required input parameters in an array
    - identify as @Required in the parameter receiving field
 
 ###  return
   - in eventual confirmation of mandatory parameter, it will generate an error
 
-### EXAMPLE
+### EXAMPLES
 ```bash
-  @ValidateRequired(['Name', 'Email'])
+  @ValidateRequired([
+    {
+      name: 'name',
+      type: 'string',
+      required: true,
+      maxLength: 11
+    }
+  ])
+```
+
+```bash
+  @ValidateRequired([
+    {
+      isArray: true,
+      typeOfArray: 'object',
+      nameOfArray: 'users',
+      fieldsArray: [{ name: ['string', true], age: ['number', false] }]
+    }
+  ])
+```
+
+   - Use different validators, which even validate objects inside arrays
+
+
+```bash
+  @ValidateRequired([
+    {
+      isArray: true,
+      typeOfArray: 'object',
+      nameOfArray: 'users',
+      fieldsArray: [{ name: ['string', true], age: ['number', false] }]
+    }
+    {
+      name: 'name',
+      type: 'string',
+      required: true,
+      maxLength: 11
+    }
+  ])
+```
+
+```bash
   public async running (@Required args: IArgs): Promise<void> {}
 ```
 
+```bash
+interface IMyPropsParameters {
+  users?: any
+  id: number
+  age: number
+}
 
-You can use the combination of decorators to avoid custom required errors.
-you can also contribute by making a pull request and adding new features :)
+class parameters {
+  @ValidateRequired([
+    {
+      isArray: true,
+      typeOfArray: 'object',
+      nameOfArray: 'users',
+      fieldsArray: [{ name: ['string', true], age: ['number', false] }]
+    },
+    {
+      name: 'id',
+      type: 'number',
+      required: true
+    },
+    {
+      name: 'age',
+      type: 'number',
+      required: true
+    }
+  ])
+  async paramters (@Required props: IMyPropsParameters) {
+
+  }
+}
+
+class service {
+  async validated () {
+    try {
+      await new parameters().paramters({
+        users: [
+          { name: 'Christian' }
+        ],
+        id: 4569,
+        age: 4
+      })
+    } catch (e) {
+      console.error(e)
+    }
+  }
+}
+
+new service().validated()
+  .then()
+  .catch()
+
+```
